@@ -1,0 +1,391 @@
+:root {
+    --c1: #406;
+}
+
+body {
+    margin: 0;
+    font-family: 'Tajawal', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-bottom: 100px;
+    background2: #FFF8E7;
+}
+
+code {
+    font-family: monospace;
+}
+
+.App {
+    text-align: center;
+}
+
+.apps a {
+    margin: 10px;
+    background: #f1f1f1;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 10px;
+    color: #000;
+}
+
+button {
+    border: 0;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    background: #f1f1f1;
+    color: #000;
+    font-weight: bold;
+}
+
+#mApps {
+    direction: rtl;
+    _max-width: 640px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    transform-origin: center center;
+    transform: scale(0) translateY(-100vh) rotateX(180deg);
+    transition: 1s;
+}
+
+[loaded] #mApps {
+    transform: none;
+}
+
+.iconHolder {
+    flex-shrink: 0;
+    flex-grow: 0;
+    width: 25%;
+    margin-bottom: 20px;
+    cursor: pointer;
+    transform-origin: center center;
+    transition: 0.5s;
+}
+
+.iconHolder .icon {
+    width: min(15vw, 96px);
+    height: min(15vw, 96px);
+    border: 3px solid var(--c1);
+    margin: auto;
+    border-radius: 100%;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.iconname {
+    margin: 0 15px;
+    font-size: 1.0rem;
+    font-weight: 600;
+    color: var(--c1);
+    display: table-caption;
+    margin-bottom: 20px;
+}
+
+.icon svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.iconHolder svg {
+    color: var(--c1);
+    height: auto;
+    width: auto;
+    max-width: 50%;
+    max-height: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.iconHolder:hover {}
+
+a {
+    text-decoration: none;
+}
+
+#desc {
+    display: none;
+    background-size: 96px;
+    color: var(--c1);
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 120px;
+    padding-left: 20px;
+    font-size: 1.4rem;
+    margin-bottom: 40px;
+    text-align: right;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--c1);
+}
+
+#app-title {
+    width: 100%;
+    color: #fff;
+    background-color: var(--c1);
+    background-size: 48px;
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+    font-size: 2rem;
+    font-weight: 800;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border-radius: 2rem;
+    margin: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+[soon] {
+    position: relative;
+}
+
+[soon] * {
+    opacity: 0.5;
+}
+
+[soon]::after {
+    content: "قريبًا";
+    position: absolute;
+    background: gray;
+    color: #fff;
+    padding: 2px 10px;
+    border-radius: 10px;
+    top: -10px;
+    left: -5px;
+    transform: rotateZ(-45deg);
+}
+
+.barIcon {
+    display: block;
+    width: 50px;
+    height: 100%;
+    position: relative;
+    color: #fff;
+}
+
+[searchbar] {
+    display: flex;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+[searchbar] input {
+    border: none;
+    height: 30px;
+    padding: 0 10px;
+}
+
+[searchicon] {
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    background: #fff;
+}
+
+[topbar] {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    direction: ltr;
+}
+
+[topbar]>div {
+    background: var(--c1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+[topbarholder] {
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+[topbarholder2] {
+    height: 100px;
+}
+
+[title] {
+    flex: 1;
+    text-align: center;
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+[underdev] {
+    text-align: center;
+    margin: 1rem;
+    font-size: 2rem;
+    color: #777;
+}
+
+[underDevIcon] {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    margin: 50px 0;
+}
+
+[underDevIcon] svg {
+    width: 100%;
+    height: 100%;
+    color: #777;
+}
+
+[term2] {
+    display: flex;
+    align-items: center;
+}
+
+[en_term] {
+    flex: 1;
+}
+
+[ar_term],
+[en_term] {
+    padding: 10px;
+    font-weight: bold;
+}
+
+[ar_term] {
+    direction: rtl;
+}
+
+[term_desc] {
+    padding: 20px;
+    padding-top: 0;
+    text-align: center;
+    direction: rtl;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+[term]+[term] {
+    border-top: 1px solid #ccc;
+}
+
+[term] img {
+    width: 320px;
+    height: 160px;
+    margin-top: 20px;
+    object-fit: contain;
+}
+
+input {
+    outline: none;
+    padding: 5px 10px;
+}
+
+input::placeholder {
+    text-align: center;
+}
+
+sup {
+    font-size: 0.7rem;
+}
+
+[planets-ages] {
+    width: 100%;
+}
+
+[planet-age] {
+    text-align: right;
+    direction: rtl;
+    padding: 10px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding-right: 100px;
+    margin-right: 20px;
+}
+
+[planetage] {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+[planetage] input {
+    margin: 10px;
+    width: 120px;
+}
+
+[date-picker] {
+    direction: rtl;
+}
+
+[date-picker] select {
+    outline: none;
+    border: 1px solid #ccc;
+    margin: 5px;
+    border-radius: 5px;
+    padding: 3px;
+    background: #fff;
+}
+
+select:invalid {
+    color: gray;
+}
+
+option {
+    color: #000;
+}
+
+option[disabled] {
+    color: gray;
+}
+
+[mainTopBar]>div {
+    height: 100px;
+    direction: rtl;
+}
+
+[mainTopBar] [title] {
+    font-size: 2rem;
+}
+
+[mainTopBar]+[topbarholder] {
+    height: 100px;
+    margin-bottom: 50px;
+}
+
+[mainTopBar] .barIcon {
+    width: 75px;
+}
+
+[mainlogo] {
+    position: absolute;
+    top: 0;
+    left: 0px;
+    right: 0;
+    bottom: 0;
+    background-image: url('./logo.svg');
+    background-size: 50px;
+    background-position: left center;
+    background-repeat: no-repeat;
+}
+
+[title] span {
+    position: relative;
+}
+
+[mainTopBar] [title] span::after {
+    content: " تجريبية 0.22";
+    font-size: 0.7rem;
+    position: absolute;
+    top: 0;
+    left: -60px;
+}

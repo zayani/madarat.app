@@ -1,0 +1,11 @@
+<svg style="color: #fff" width="640" height="640" viewBox="-320 -320 640 640" xmlns="http://www.w3.org/2000/svg" >
+ 
+ 
+    <path id="orb1" fill="#4D248F"  d="M 0 60 A 60 60 0 0 0 0 -60M 0 -60 A 60 60 0 0 0 0 60"></path>
+    <path id="orb2" fill="none" stroke="#4D248F" stroke-width="20" stroke-linecap="round" d="M -160 0 A 160 160 0 1 0 0 -160"></path>
+    <path id="orb3" fill="none" stroke="#4D248F" stroke-width="20" stroke-linecap="round" d="M 280 0 A 280 280 0 1 0 0 280"></path>
+
+    <path id="obj1" fill="#4D248F" d="M -160 40 A 40 40 0 0 0 -160 -40M -160 -40 A 40 40 0 0 0 -160 40"></path>
+    <path id="obj2" fill="#4D248F" d="M 280 40 A 40 40 0 0 0 280 -40M 280 -40 A 40 40 0 0 0 280 40"></path>
+ 
+ </svg>
