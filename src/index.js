@@ -9,7 +9,8 @@ import Soon from "./routes/soon";
 import UniversScale from './routes/universe_scale';
 import Terms from './routes/terms';
 import PlanetAge from './routes/planetage'
-import Timeline from './routes/timline';
+import { Timeline, TimelineSwitch } from './routes/timline';
+import LightPollution from './routes/lightpollution';
 
 const rootElement = document.getElementById("root");
 render(
@@ -20,7 +21,10 @@ render(
       <Route path="/universe_scale" element={<UniversScale />} />
       <Route path="/terms" element={<Terms />} />
       <Route path="/planetage" element={<PlanetAge />} />
-      <Route path="/timeline" element={<Timeline />} />
+      <Route path="/timeline" element={<TimelineSwitch />} />
+      <Route path="/timeline/:TLID" element={<Timeline />} />
+      <Route path="/lightpollution" element={<LightPollution />} />
+
     </Routes>
   </BrowserRouter>,
   rootElement

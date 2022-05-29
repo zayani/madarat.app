@@ -1,0 +1,27 @@
+.tl-message-content,
+.tl-button {
+    color: transparent !important;
+    font-size: 0px !important;
+}
+
+.tl-message-content::before {
+    color: #666;
+    font-size: 24px;
+    content: 'مرر افقيًا للتنقل ';
+}
+
+.tl-button {
+    border: 1px solid #666;
+}
+
+.tl-button::before {
+    color: #666;
+    font-size: 22px;
+    line-height: 30px;
+    padding: 15px;
+    content: 'ابدأ';
+}
+
+.tl-slidenav-description {
+    direction: rtl;
+}

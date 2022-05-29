@@ -9,7 +9,7 @@ export const log = (...args) => console.log(...args);
 
 export const Back = (props) => {
 
-    let navigate = useNavigate();
+    const navigate = useNavigate();
 
     return (
 
@@ -18,7 +18,9 @@ export const Back = (props) => {
     );
 };
 
-export const TopBar = ({ name, children, leftSide, ...props }) => {
+export const TopBar = ({ name, children, leftSide, noholder, ...props }) => {
+
+    const navigate = useNavigate();
 
     log("children", children);
 
@@ -28,7 +30,12 @@ export const TopBar = ({ name, children, leftSide, ...props }) => {
 
         <div topbar="" key="1" {...props}>
             <div>
-                <Link to="/" className="barIcon">
+                <Link onClick={() => {
+                    window.location = window.location.pathname.split("/").slice(0, -1).join("/") || "/"
+
+                }
+                }
+                    to="#" className="barIcon">
                     {leftSide ? leftSide : <Icon name="chevron-left" />}
                 </Link>
                 <div title={name}>
@@ -41,9 +48,10 @@ export const TopBar = ({ name, children, leftSide, ...props }) => {
                 </a>
             </div>
             {children}
-        </div>
+        </div >
 
-    ), <div topbarholder="" topbarholder2={children ? "" : null} key="2" />];
+    ), noholder ? null :
+        <div topbarholder="" topbarholder2={children ? "" : null} key="2" />];
 }
 
 export const Icon = ({ svg, name, className = "", ...more }) => (
@@ -70,4 +78,48 @@ export const SearchBar = ({ children, onChange }) => {
         </div>
     )
 
+}
+
+export const addScript = (url) => new Promise((res, rej) => {
+
+    if (document.head.innerHTML.includes(url)) return res(1);
+
+    var script = document.createElement('script');
+    script.onload = res;
+    script.src = url;
+    document.head.appendChild(script);
+});
+
+export const addStyle = (url) => new Promise((res, rej) => {
+
+    if (document.head.innerHTML.includes(url)) return res(1);
+
+    var link = document.createElement('link');
+    link.onload = res;
+    link.href = url;
+    link.type = "text/css";
+    link.rel = "stylesheet";
+    link.media = "screen,print";
+    document.head.appendChild(link);
+});
+
+export const addToHead = (...urls) => {
+    let promiseList = [];
+
+    urls.forEach(url => {
+        if (Array.isArray(url)) {
+
+            var tag = document.createElement(url[0]);
+            tag.innerHTML = url[1];
+
+            document.head.appendChild(tag);
+
+            return;
+        }
+        promiseList.push(
+            url.slice(-3) == ".js" ? addScript(url) : addStyle(url)
+        )
+    });
+
+    return Promise.all(promiseList);
 }

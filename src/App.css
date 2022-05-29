@@ -195,6 +195,7 @@ a {
     right: 0;
     left: 0;
     direction: ltr;
+    z-index: 100;
 }
 
 [topbar]>div {
@@ -383,9 +384,47 @@ option[disabled] {
 }
 
 [mainTopBar] [title] span::after {
-    content: " تجريبية 0.22";
+    content: " تجريبية 0.30";
     font-size: 0.7rem;
     position: absolute;
     top: 0;
     left: -60px;
+}
+
+.TLswitch {
+    display: block;
+    text-align: center;
+    border-radius: 30px;
+    background: var(--c1);
+    color: #fff;
+    margin: 20px;
+    padding: 10px;
+}
+
+.TLswitch.soon {
+    opacity: 0.5;
+}
+
+.TLswitch.soon::before {
+    content: "قريبًا";
+    margin-left: 10px;
+    font-size: 0.75rem;
+    margin-right: 30px;
+    padding: 5px;
+    border-radius: 10px;
+    border: 1px solid #fff
+}
+
+.tonextbd {
+    font-size: 1.25rem;
+    padding: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.tonextbd>div {
+    background-image: url('./imgs/party-popper-joypixels.gif');
+    background-size: 2.3rem;
+    padding: 10px 50px;
+    background-repeat: no-repeat;
 }

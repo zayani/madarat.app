@@ -78,7 +78,9 @@ let msinYear = (1000 * 60 * 60 * 24 * 365.2425);
 
 export default function () {
 
-    let [bd, set_bd] = useState(null);
+    let [bd, set_bd] = useState(
+        //'1982-1-19'
+    );
 
     let onDate = d => {
         log(d);
@@ -87,7 +89,7 @@ export default function () {
 
     //if (!bd) set_bd("1982-01-19");
 
-    let $bd;
+    let $bd, nextBDList = {};
 
 
     //age in earth yearsc
@@ -127,30 +129,91 @@ export default function () {
 
         console.log(n, nextBDY, nextbd);
 
-        return <div>
+        return [nextbd, <div>
             {D2S(nextbd)}
             {" "}({nextBDY} سنة {l})
-        </div>;
+        </div>, nextBDY];
     }
 
 
     log(age, age.toFixed(2), "earth year");
-    $bd = periods.map(({ n, y, l }, i) => (
-        <div planet-age="" key={n} style={{ backgroundImage: `url('/imgs/solar2/b${i + 1}.png')` }}  >
-            <div>
+    $bd = periods.map(({ n, y, l }, i) => {
 
-                {(age / y).toPrecision(3)} سنة {l}</div>
-            <div>
-                🎂 عيد ميلادك القادم في {n}
+        nextBDList[n] = nextBD(n, y, l, i)
+
+        console.log('nnn', n, (age / y).toPrecision(3), nextBDList[n][2]);
+
+        return (
+            <div planet-age="" key={n} style={{ backgroundImage: `url('/imgs/solar2/b${i + 1}.png')` }}  >
+                <div>
+
+                    {
+                        (age / y) > 100 ?
+                            (age / y).toPrecision(4) :
+                            (age / y).toPrecision(3)
+                    } سنة {l}
+
+                </div>
+                <div>
+                    🎂 عيد ميلادك القادم في {n}
+                </div>
+                <div>
+                    {nextBDList[n][1]}
+
+                </div>
+
             </div>
-            <div>
-                {nextBD(n, y, l, i)}
+        )
+    })
 
-            </div>
+    let tonextbd;
 
+
+    const getDayN = (date) => {
+        let d = new Date(date);
+
+        let baseDay = Math.floor(
+            new Date(d.getFullYear(), d.getMonth(), d.getDate()) / 864e5
+        );
+
+        return baseDay;
+    }
+
+    if (bd) {
+        let min_diff = 1e12, min_diff_name;
+
+        let baseDay = getDayN(Date.now());
+
+        Object.entries(nextBDList).forEach(([name, [nextBD]]) => {
+
+            let diff = getDayN(nextBD) - baseDay;
+
+            if (diff < min_diff) {
+                min_diff = diff;
+                min_diff_name = name
+            }
+
+            console.log(name, nextBD, diff)
+        })
+
+
+
+
+        tonextbd = min_diff == 0 ? <div>
+            {`اليوم هو عيد ميلادك في كوكب ${min_diff_name}`}
         </div>
-    ))
+            :
+            min_diff == 1 ? <div>
+                {`غدًا هو عيد ميلادك في كوكب ${min_diff_name}`}
+            </div> :
+                `تبقى
+    ${min_diff}
+     يوم على عيد ميلادك في
+    ${min_diff_name}
+    `
 
+        console.log(min_diff, min_diff_name, tonextbd);
+    }
 
     return (
         <div planetage="">
@@ -161,6 +224,7 @@ export default function () {
             </div>
             <DatePicker onDate={onDate} />
 
+            <div className="tonextbd" >{tonextbd}</div>
 
             <div planets-ages=""  >{bd ? $bd : ""}</div>
         </div>

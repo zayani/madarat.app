@@ -18,24 +18,34 @@ let mApps = [
     { name: "مصطلحات فضائية", icon: "fal_book-sparkles", url: 'terms' },
     { name: "عمرك الكوكبي", icon: "fal_cake-candles", url: 'planetage' },
     { name: "خطوط زمنية", icon: "fal_timeline", url: "timeline" },
+    { name: "التلوث الضوئي", icon: "fal_lightbulb-exclamation-on", url: "lightpollution" },
 
     { name: "مقياس الكون", icon: "fal_ruler-vertical", url2: 'universe_scale' },
-    //{ name: "الإطلاقات", icon: "fal_rocket-launch", desc: "" },
+
+
     { name: "التقويم الفضائي", icon: "fal_calendar-check", desc: "" },
     { name: "مهام فضائية", icon: "fal_planet-ringed", desc: "" },
-
-
     { name: "ارتميس", svg: SVGICONS.Artemis, desc: "" },
     { name: "نظم إطلاق", icon: "fal_shuttle-space", desc: "" },
-    { name: "رياديو الفضاء", icon: "fal_graduation-cap", desc: "" },
-    { name: "نوادي وجمعيات", icon: "fal_screen-users", desc: "" },
-    { name: "أجرام", icon: "fal_solar-system", desc: "" },
-    { name: "حقائق مثيرة", icon: "fal_hexagon-exclamation", desc: "" },
 
     { name: "فضاء البحرين", svg: SVGICONS.NSSA, desc: "" },
     { name: "فضاء السعودية", svg: SVGICONS.SSC, desc: "" },
     { name: "فضاء الإمارات", svg: SVGICONS.UAESA, desc: "" },
     { name: "فضاء الكويت", svg: SVGICONS.KSR, desc: "" },
+
+
+    { name: "قوائم فضائية", icon: "fal_list-timeline", url: "" },
+
+    { name: "الإطلاقات", icon: "fal_rocket-launch", desc: "" },
+
+
+    { name: "رياديو الفضاء", icon: "fal_graduation-cap", desc: "" },
+    { name: "نوادي وجمعيات", icon: "fal_screen-users", desc: "" },
+    { name: "أجرام", icon: "fal_solar-system", desc: "" },
+    { name: "حقائق مثيرة", icon: "fal_hexagon-exclamation", desc: "" },
+
+
+
 
 ]
 
